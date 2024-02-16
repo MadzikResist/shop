@@ -44,7 +44,6 @@ const NavIcons = () => {
         <Link to={`/${icon.name}`} style={{ color: "white" }} key={index}>
           <div
             className={`nav-container-icons ${selectedIcon === icon.name && "nav-selected-icon"}`}
-            // onClick={() => handleIconClick(icon.name)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
