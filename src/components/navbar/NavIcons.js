@@ -41,7 +41,7 @@ const NavIcons = () => {
   return (
     <div className="nav-container" style={{bottom: scrollDirection === 'down' ? '-70px' : '8px'}}>
       {iconsData.map((icon, index) => (
-        <Link to={`/${icon.name}`} style={{ color: "white" }} key={index}>
+        <Link to={`/${icon.name}`} style={{ color: "white" }} key={icon.name}>
           <div
             className={`nav-container-icons ${selectedIcon === icon.name && "nav-selected-icon"}`}
           >
