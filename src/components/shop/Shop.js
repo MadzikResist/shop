@@ -1,8 +1,7 @@
 import NavIcons from "../navbar/NavIcons";
-import product1 from "../../assets/product1.webp";
-import product2 from "../../assets/product2.webp";
 import { images } from "../../const/images";
 import {Link} from "react-router-dom";
+import './shop.css'
 const Shop = () => {
 
   return (
@@ -43,7 +42,8 @@ const Shop = () => {
                   <div
                     className="main-popular-products-image"
                     style={{backgroundImage: `url(${item.photo})`}}
-                  ></div>
+                  >                <div className="main-popular-products-image-like"> ♥ </div>
+                  </div>
                   <p className="main-popular-products-image-name">
                     {item.name}
                   </p>

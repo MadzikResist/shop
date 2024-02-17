@@ -19,6 +19,7 @@ const NavIcons = () => {
     }else{
       setSelectedIcon("")
     }
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const NavIcons = () => {
         setScrollDirection("up");
       }
       // setScrollY(currentScrollY)
+      // eslint-disable-next-line
       scrollY = currentScrollY
     };
     window.addEventListener("scroll", handleScroll);

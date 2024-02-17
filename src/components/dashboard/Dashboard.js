@@ -3,6 +3,7 @@ import headerPhoto from "../../assets/headerPhoto.png";
 import product1 from "../../assets/product1.webp";
 import product2 from "../../assets/product2.webp";
 import NavIcons from "../navbar/NavIcons";
+import {Link} from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -36,6 +37,7 @@ const Dashboard = () => {
         <div className="sale-container">
           <div className="sale-text-button-container">
             <p className="sale-text">Super Sale Discount 40%</p>
+            <Link to={'/shop'} style={{textDecoration: 'none', cursor: 'pointer'}}>
             <button className="sale-button">
               Get Now
               <svg
@@ -46,6 +48,7 @@ const Dashboard = () => {
                 <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
               </svg>
             </button>
+            </Link>
           </div>
           <img src={headerPhoto} className="sale-background" alt="sale" />
         </div>
