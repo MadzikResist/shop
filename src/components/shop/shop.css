@@ -1,15 +1,7 @@
-/*.shop-container{*/
-/*    display: flex;*/
-/*}*/
-.main-popular-products-image-like{
-    position: absolute;
-    padding: 0 4px ;
-    right: 16px;
-    top: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fafafa;
-    border-radius: 50%;
-    font-size: 18px;
+.main-popular-products-image-icon {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  top: 8px;
+  right: 16px;
 }
