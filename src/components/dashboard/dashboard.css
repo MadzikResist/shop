@@ -106,7 +106,6 @@
 .main-container{
   width: 100%;
   margin-bottom: 70px;
-
 }
 .main-product-list{
   width: 100%;
@@ -115,7 +114,6 @@
   overflow: auto;
   scrollbar-width: none;
   padding: 0 16px;
-
 }
 .main-product-list-element{
   width: 70px;
@@ -124,7 +122,6 @@
   background-color: #b2d2f6;
   display: inline-block;
   margin-right: 8px;
-
 }
 .main-popular-products-container {
   padding: 16px;

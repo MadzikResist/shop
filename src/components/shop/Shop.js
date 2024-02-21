@@ -50,7 +50,7 @@ const Shop = () => {
                 <div className="main-popular-products-image-text">
                   <div
                     className="main-popular-products-image"
-                    style={{ backgroundImage: `url(${item.photo})` }}
+                    style={{ backgroundImage: `url(${item.photos[0]})` }}
                   >
                     <div
                       className="main-popular-products-image-icon"

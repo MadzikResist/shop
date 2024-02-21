@@ -11,11 +11,11 @@ const NavIcons = () => {
   useEffect(() => {
     if(currentURL.includes("shop")){
       setSelectedIcon("shop")
-    } else if(currentURL.includes("notifications")){
-      setSelectedIcon("notifications")
+    } else if(currentURL.includes("cart")){
+      setSelectedIcon("cart")
     }
-    else if(currentURL.includes("user")){
-      setSelectedIcon("user")
+    else if(currentURL.includes("account")){
+      setSelectedIcon("account")
     }else{
       setSelectedIcon("")
     }

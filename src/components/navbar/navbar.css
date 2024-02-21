@@ -22,7 +22,10 @@
     fill: #fafafa;
 }
 .nav-container-icons{
-    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
     border-radius: 50%;
 }
 .nav-selected-icon{

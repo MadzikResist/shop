@@ -1,47 +1,74 @@
 import "./product.css";
 import { useState } from "react";
-import {useNavigate} from "react-router-dom";
-import { useLocation } from 'react-router-dom'
+import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import ImageSlider from "../ImageSlider";
 
 const Product = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { item } = location.state;
   const [like, setLike] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(item.sizes[0]);
+  const [isAdded, setIsAdded] = useState(false);
+
   const likeProduct = () => {
     setLike(!like);
   };
-  const location = useLocation()
-  const { item } = location.state
+  const handleSizeClick = (size) => {
+    if (item.sizes?.includes(size)) {
+      setSelectedSize(size);
+    }
+  };
 
-  const navigate = useNavigate();
+  const renderSize = (size) => {
+    const isSizeAvailable = item.sizes?.includes(size);
+    return (
+      <div
+        key={size}
+        onClick={() => handleSizeClick(size)}
+        className="product-main-size"
+        style={{
+          color: isSizeAvailable ? "#000" : undefined,
+          backgroundColor: selectedSize === size ? "#48e788" : undefined,
+          pointerEvents: isSizeAvailable ? "default" : "none",
+        }}
+      >
+        {size}
+      </div>
+    );
+  };
+
   return (
     <div className="product-container">
-      <nav aria-label="Navbar" className="product-nav">
-        <div className="product-nav-buttons">
-          <button className="product-nav-buttons-back" onClick={() => navigate(-1)}>
+      <header aria-label="Header" className="product-header">
+        <div className="product-header-buttons">
+          <button
+            className="product-header-buttons-back"
+            onClick={() => navigate(-1)}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 320 512"
-              className="product-nav-buttons-back-icon"
+              className="product-header-buttons-back-icon"
             >
               <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
             </svg>
           </button>
-          <h2 className="product-nav-buttons-title">Product Details</h2>
-          <button className="product-nav-buttons-share">
+          <h2 className="product-header-buttons-title">Product Details</h2>
+          <button className="product-header-buttons-share">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              className="product-nav-buttons-share-icon"
+              className="product-header-buttons-share-icon"
             >
               <path d="M307 34.8c-11.5 5.1-19 16.6-19 29.2v64H176C78.8 128 0 206.8 0 304C0 417.3 81.5 467.9 100.2 478.1c2.5 1.4 5.3 1.9 8.1 1.9c10.9 0 19.7-8.9 19.7-19.7c0-7.5-4.3-14.4-9.8-19.5C108.8 431.9 96 414.4 96 384c0-53 43-96 96-96h96v64c0 12.6 7.4 24.1 19 29.2s25 3 34.4-5.4l160-144c6.7-6.1 10.6-14.7 10.6-23.8s-3.8-17.7-10.6-23.8l-160-144c-9.4-8.5-22.9-10.6-34.4-5.4z" />
             </svg>
           </button>
         </div>
-      </nav>
+      </header>
       <main aria-label="Main" className="product-main">
-        <div
-          className="product-main-photo"
-          style={{ backgroundImage: `url(${item.photo})` }}
-        />
+        <ImageSlider photos={item.photos} />
         <div className="product-main-info-container">
           <div>
             <p className="product-main-title">{item.name}</p>
@@ -80,20 +107,22 @@ const Product = () => {
         <div className="product-main-size-container">
           <p className="product-main-size-title">Size</p>
           <div className="product-main-sizes">
-            <div className="product-main-size" style={{ backgroundColor: item.size === 'XS' && '#48e788' }}>XS</div>
-            <div className="product-main-size" style={{ backgroundColor: item.size === 'S' && '#48e788' }}>S</div>
-            <div className="product-main-size" style={{ backgroundColor: item.size === 'M' && '#48e788' }}>M</div>
-            <div className="product-main-size" style={{ backgroundColor: item.size === 'L' && '#48e788' }}>L</div>
-            <div className="product-main-size" style={{ backgroundColor: item.size === 'XL' && '#48e788' }}>XL</div>
+            {["XS", "S", "M", "L", "XL"].map(renderSize)}
           </div>
         </div>
       </main>
       <footer className="product-footer-container">
         <div className="product-footer-buttons">
-          <div className="product-footer-buttons-buy">Buy Now</div>
-          <div className="product-footer-buttons-myCart">
+          <Link to={"/cart"} className="product-footer-buttons-buy">
+            Buy Now
+          </Link>
+          <div
+            className="product-footer-buttons-myCart"
+            onClick={() => setIsAdded((prevState) => !prevState)}
+            style={{ opacity: isAdded ? "30%" : "100%" }}
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z" />
+              <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96zM252 160c0 11 9 20 20 20h44v44c0 11 9 20 20 20s20-9 20-20V180h44c11 0 20-9 20-20s-9-20-20-20H356V96c0-11-9-20-20-20s-20 9-20 20v44H272c-11 0-20 9-20 20z" />
             </svg>
           </div>
         </div>
