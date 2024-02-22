@@ -11,12 +11,7 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         cart: [...state.cart, action.payload],
-        isButtonDisabled: false,
       };
-    case "DISABLE_BUTTON":
-      return { ...state, isButtonDisabled: true };
-    case "FIND_ID":
-      return {}
     default:
       return state;
   }
@@ -26,20 +21,16 @@ const cartReducer = (state, action) => {
 const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, {
     cart: [],
-    isButtonDisabled: false,
   });
 
   const addToCart = (item) => {
     dispatch({ type: "ADD_TO_CART", payload: item });
   };
-  const disableButton = () => {
-    dispatch({ type: "DISABLE_BUTTON" });
-  };
 
   // Inne funkcje do zarządzania koszykiem
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, disableButton }}>
+    <CartContext.Provider value={{ cart, addToCart }}>
       {children}
     </CartContext.Provider>
   );

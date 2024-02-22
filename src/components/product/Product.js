@@ -12,26 +12,31 @@ const Product = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { item } = location.state;
+  const addedItems = [];
   const [like, setLike] = useState(false);
   const [selectedSize, setSelectedSize] = useState(item.sizes[0]);
-  const addedItems = [];
+  const [disableButton, setDisableButton] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
-  const { cart, addToCart, disableButton } = useCart();
+  const { cart, addToCart } = useCart();
 
   useEffect(() => {
     cart.cart.forEach((addedItem) => {
       addedItems.push(addedItem.id);
     });
-  }, [addedItems]);
+  }, [addedItems, cart.cart]);
+
+  useEffect(() => {
+    if (addedItems.includes(item.id)) {
+      setDisableButton(true);
+    } else {
+      setDisableButton(false);
+    }
+  }, [disableButton, addedItems, item.id]);
+
   const handleAddToCart = (item) => {
     if (!addedItems.includes(item.id)) {
       addToCart(item);
     }
-    // if (addedItems.includes(item.id)) {
-    //   disableButton(true);
-    // } else {
-    //   disableButton(false);
-    // }
   };
   const likeProduct = () => {
     setLike(!like);
@@ -122,7 +127,14 @@ const Product = () => {
       </main>
       <footer className="product-footer-container">
         <div className="product-footer-buttons">
-          <Link to={"/cart"} className="product-footer-buttons-buy">
+          <Link
+            to={"/cart"}
+            className="product-footer-buttons-buy"
+            onClick={() => {
+              setIsAdded(!isAdded);
+              handleAddToCart(item);
+            }}
+          >
             Buy Now
           </Link>
           <button
@@ -131,8 +143,8 @@ const Product = () => {
               setIsAdded(!isAdded);
               handleAddToCart(item);
             }}
-            style={{ opacity: isAdded ? "30%" : "100%" }}
-            disabled={cart.isButtonDisabled}
+            style={{ opacity: disableButton ? "30%" : "100%" }}
+            disabled={disableButton}
           >
             <CartIcon />
           </button>

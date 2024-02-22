@@ -159,6 +159,7 @@
   justify-content: center;
   border: 1px solid #121212;
   padding: 20px;
+  background-color: transparent;
 }
 .slider {
   display: flex;
