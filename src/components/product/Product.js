@@ -35,7 +35,7 @@ const Product = () => {
 
   const handleAddToCart = (item) => {
     if (!addedItems.includes(item.id)) {
-      addToCart(item);
+      addToCart({ ...item, size: selectedSize });
     }
   };
   const likeProduct = () => {
