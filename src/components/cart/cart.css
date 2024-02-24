@@ -63,3 +63,35 @@
 .cart-main-product-info-count-number{
     padding: 8px;
 }
+
+.cart-main-products-empty-text{
+    font-size: 20px;
+    text-align: center;
+    padding: 0 16px;
+    margin-bottom: 16px;
+
+}
+.cart-main-products-empty-container{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.cart-dropdown{
+    position: absolute;
+    width: 100px;
+    height: 0;
+    background-color: #f5f5f5;
+    top: 6%;
+    right: 16px;
+    border-radius: 8px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: height 0.3s ease;
+
+}

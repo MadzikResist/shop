@@ -44,7 +44,7 @@ const Shop = () => {
               to={`/product/${item.id}`}
               key={item.id}
               style={{ textDecoration: "none", color: "black" }}
-              state={{item}}
+              state={{ item }}
             >
               <div className="main-popular-products-image-text">
                 <div className="main-popular-products-image-text">
@@ -55,8 +55,9 @@ const Shop = () => {
                     <div
                       className="main-popular-products-image-icon"
                       onClick={(e) => {
-                        e.preventDefault();
+                        e.preventDefault()
                         likeProduct();
+
                       }}
                     >
                       {like ? (
