@@ -1,29 +1,27 @@
 import "./product.css";
-import { useEffect, useState } from "react";
+import {useEffect, useMemo, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import ImageSlider from "../ImageSlider";
 import ShareIcon from "../../const/icons/ShareIcon";
 import BackIcon from "../../const/icons/BackIcon";
 import CartIcon from "../../const/icons/CartIcon";
-import { useCart } from "../CartContext";
+import { useCart } from "../../contexts/CartContext";
 
 const Product = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { item } = location.state;
-  const addedItems = [];
   const [like, setLike] = useState(false);
   const [selectedSize, setSelectedSize] = useState(item.sizes[0]);
   const [disableButton, setDisableButton] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const { cart, addToCart } = useCart();
 
-  useEffect(() => {
-    cart.cart.forEach((addedItem) => {
-      addedItems.push(addedItem.id);
-    });
-  }, [addedItems, cart.cart]);
+  const addedItems = useMemo(() => {
+    return cart.cart.map(addedItem => addedItem.id);
+  }, [cart.cart]);
+
 
   useEffect(() => {
     if (addedItems.includes(item.id)) {

@@ -1,5 +1,5 @@
 import product1 from "../../assets/product1.webp";
-import { useCart } from "../CartContext";
+import { useCart } from "../../contexts/CartContext";
 import {Link} from "react-router-dom";
 
 const CartList = () => {

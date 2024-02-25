@@ -5,7 +5,7 @@ import BackIcon from "../../const/icons/BackIcon";
 import DotsIcon from "../../const/icons/DotsIcon";
 import CartList from "./CartList";
 import { useState } from "react";
-import { useCart } from "../CartContext";
+import { useCart } from "../../contexts/CartContext";
 const Cart = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);

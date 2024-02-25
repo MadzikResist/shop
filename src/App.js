@@ -4,20 +4,23 @@ import Shop from "./components/shop/Shop";
 import Product from "./components/product/Product";
 import Account from "./components/account/Account";
 import Cart from "./components/cart/Cart";
-import { CartProvider } from "./components/CartContext";
+import { CartProvider } from "./contexts/CartContext";
+import { LikesProvider } from "./contexts/UserContext";
 
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/product/:id" element={<Product />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/account" element={<Account />} />
-        </Routes>
-      </BrowserRouter>
+      <LikesProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/product/:id" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/account" element={<Account />} />
+          </Routes>
+        </BrowserRouter>
+      </LikesProvider>
     </CartProvider>
   );
 }

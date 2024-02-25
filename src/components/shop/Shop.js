@@ -3,10 +3,16 @@ import { products } from "../../const/products";
 import { Link } from "react-router-dom";
 import "./shop.css";
 import { useState } from "react";
+import { useLikes } from "../../contexts/UserContext";
 const Shop = () => {
   const [like, setLike] = useState(false);
+  const { likes, likeItem } = useLikes();
   const likeProduct = () => {
     setLike(!like);
+  };
+
+  const handleLikeItem = (item) => {
+    likeItem({ ...item, like: true });
   };
   return (
     <div className="shop-container">
@@ -55,9 +61,9 @@ const Shop = () => {
                     <div
                       className="main-popular-products-image-icon"
                       onClick={(e) => {
-                        e.preventDefault()
-                        likeProduct();
-
+                        e.preventDefault();
+                        // likeProduct();
+                        handleLikeItem(item);
                       }}
                     >
                       {like ? (
