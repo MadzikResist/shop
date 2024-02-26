@@ -7,14 +7,15 @@ const cartReducer = (state, action) => {
     case "ADD_TO_CART":
       const itemWithSize = action.payload;
       const existingItem = state.cart.find(
-        (item) => item.id === itemWithSize.id && item.size === itemWithSize.size
+        (item) =>
+          item.id === itemWithSize.id && item.size === itemWithSize.size,
       );
 
       if (existingItem) {
         const updatedCart = state.cart.map((item) =>
           item.id === existingItem.id && item.size === existingItem.size
             ? { ...item, quantity: item.quantity + itemWithSize.quantity }
-            : item
+            : item,
         );
 
         return {
@@ -32,7 +33,7 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         cart: state.cart.map((item) =>
-          item.id === action.payload.id
+          item.id === action.payload.id && item.size === action.payload.size
             ? { ...item, quantity: action.payload.quantity }
             : item,
         ),
@@ -41,9 +42,19 @@ const cartReducer = (state, action) => {
       return {
         ...state,
         cart: state.cart.filter(
-          (item) => !(item.id === action.payload.id && item.size === action.payload.size)
+          (item) =>
+            !(
+              item.id === action.payload.id && item.size === action.payload.size
+            ),
         ),
       };
+    case "CLEAR_CART":
+      return {
+        ...state,
+        cart: [],
+      };
+    default:
+      return state;
   }
 };
 
@@ -52,24 +63,23 @@ const CartProvider = ({ children }) => {
 
   const addToCart = (item, quantityDelta = 1) => {
     const existingItem = cart.cart.find(
-      (existingItem) => existingItem.id === item.id && existingItem.size === item.size
+      (existingItem) =>
+        existingItem.id === item.id && existingItem.size === item.size,
     );
 
     if (existingItem) {
-      const newQuantity = Math.max(existingItem.quantity + quantityDelta, 0);
-
       dispatch({
         type: "UPDATE_QUANTITY",
-        payload: { id: item.id, size: item.size, quantity: newQuantity },
+        payload: { id: item.id, size: item.size, quantity: quantityDelta },
       });
 
-      if (newQuantity === 0) {
+      if (quantityDelta === 0) {
         removeFromCart(item);
       }
     } else {
       dispatch({
         type: "ADD_TO_CART",
-        payload: { ...item, quantity: quantityDelta },
+        payload: { ...item, quantity: 1 },
       });
     }
   };

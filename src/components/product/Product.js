@@ -46,12 +46,22 @@ const Product = () => {
 
     // Jeśli istnieje, zaktualizuj ilość (bez dodawania nowego elementu)
     if (existingItem) {
-      addToCart(itemWithSize, existingItem.quantity + 1);
-    } else {
-      // Jeśli nie istnieje, dodaj nowy element do koszyka z ilością 1
-      addToCart(itemWithSize, 1);
+      console.log('hyh')
+      addToCart(itemWithSize, existingItem.quantity );
     }
+    else{
+      addToCart(itemWithSize);
+    }
+    // else if (!addedItems.includes(item.id)) {
+    //       addToCart({ ...item, size: selectedSize });
+    //     }
   };
+
+  // const handleAddToCart = (item) => {
+  //   if (!addedItems.includes(item.id)) {
+  //     addToCart({ ...item, size: selectedSize });
+  //   }
+  // };
   const handleSizeClick = (size) => {
     if (item.sizes?.includes(size)) {
       setSelectedSize(size);

@@ -1,28 +1,27 @@
 import product1 from "../../assets/product1.webp";
 import { useCart } from "../../contexts/CartContext";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CartList = () => {
   const { cart, addToCart } = useCart();
-  console.log(cart)
+  console.log(cart);
   const handleIncreaseQuantity = (item) => {
-    addToCart(item, 1);
+    addToCart(item, item.quantity + 1);
   };
 
   const handleDecreaseQuantity = (item) => {
-    addToCart(item, -1);
+    addToCart(item, item.quantity - 1);
   };
   return (
     <div className="cart-main-products-container">
       {!cart.cart.length ? (
         <div className="cart-main-products-empty-container">
-        <p className="cart-main-products-empty-text">No products in your cart. Start adding them now!</p>
-        <Link
-          to={"/shop"}
-          className="product-footer-buttons-buy"
-        >
-          Add Product
-        </Link>
+          <p className="cart-main-products-empty-text">
+            No products in your cart. Start adding them now!
+          </p>
+          <Link to={"/shop"} className="product-footer-buttons-buy">
+            Add Product
+          </Link>
         </div>
       ) : (
         cart.cart.map((item, index) => {
