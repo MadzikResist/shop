@@ -2,17 +2,17 @@ import NavIcons from "../navbar/NavIcons";
 import { products } from "../../const/products";
 import { Link } from "react-router-dom";
 import "./shop.css";
-import { useState } from "react";
-import { useLikes } from "../../contexts/UserContext";
+import { useMemo} from "react";
+import { useLikes } from "../../contexts/LikesContext";
 const Shop = () => {
-  const [like, setLike] = useState(false);
   const { likes, likeItem } = useLikes();
-  const likeProduct = () => {
-    setLike(!like);
-  };
+  const addedLikes = useMemo(() => {
+    return likes.likes.map((addedItem) => addedItem.id);
+  }, [likes.likes]);
 
-  const handleLikeItem = (item) => {
-    likeItem({ ...item, like: true });
+
+  const handleLikeItem = (item, like) => {
+    likeItem({ ...item, like });
   };
   return (
     <div className="shop-container">
@@ -45,28 +45,28 @@ const Shop = () => {
       </header>
       <main aria-label="Main content" className="main-container">
         <div className="main-popular-products-images-container ">
-          {products.map((item) => (
+          {products.map((product) => (
             <Link
-              to={`/product/${item.id}`}
-              key={item.id}
+              to={`/product/${product.id}`}
+              key={product.id}
               style={{ textDecoration: "none", color: "black" }}
-              state={{ item }}
+              state={{ product }}
             >
               <div className="main-popular-products-image-text">
-                <div className="main-popular-products-image-text">
+                <div
+                  className="main-popular-products-image-text">
                   <div
                     className="main-popular-products-image"
-                    style={{ backgroundImage: `url(${item.photos[0]})` }}
+                    style={{ backgroundImage: `url(${product.photos[0]})` }}
                   >
                     <div
                       className="main-popular-products-image-icon"
                       onClick={(e) => {
                         e.preventDefault();
-                        // likeProduct();
-                        handleLikeItem(item);
+                        handleLikeItem(product, true);
                       }}
                     >
-                      {like ? (
+                      {addedLikes.includes(product.id) ? (
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           viewBox="0 0 512 512"
@@ -85,10 +85,10 @@ const Shop = () => {
                     </div>
                   </div>
                   <p className="main-popular-products-image-name">
-                    {item.name}
+                    {product.name}
                   </p>
                   <p className="main-popular-products-image-cost">
-                    {item.price}
+                    {product.price}
                   </p>
                 </div>
               </div>

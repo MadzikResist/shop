@@ -5,7 +5,7 @@ import Product from "./components/product/Product";
 import Account from "./components/account/Account";
 import Cart from "./components/cart/Cart";
 import { CartProvider } from "./contexts/CartContext";
-import { LikesProvider } from "./contexts/UserContext";
+import { LikesProvider } from "./contexts/LikesContext";
 
 function App() {
   return (
