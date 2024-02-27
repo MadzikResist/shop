@@ -16,9 +16,9 @@ const Shop = () => {
   };
   return (
     <div className="shop-container">
-      <header aria-label="Header" className="header">
+      <header aria-label="Header" className="header header-shop">
         <div className="header-search-container">
-          <div className="header-search">
+          <div className="header-search header-search-shop">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="header-search-icon"
@@ -28,7 +28,7 @@ const Shop = () => {
             </svg>
             <input
               type="search"
-              className="header-search-input"
+              className="header-search-input header-search-input-shop"
               placeholder="Search Product"
             ></input>
           </div>
@@ -51,10 +51,10 @@ const Shop = () => {
               key={product.id}
               style={{ textDecoration: "none", color: "black" }}
               state={{ product }}
+
             >
               <div className="main-popular-products-image-text">
-                <div
-                  className="main-popular-products-image-text">
+
                   <div
                     className="main-popular-products-image"
                     style={{ backgroundImage: `url(${product.photos[0]})` }}
@@ -90,14 +90,13 @@ const Shop = () => {
                   <p className="main-popular-products-image-cost">
                     {product.price}
                   </p>
-                </div>
               </div>
             </Link>
           ))}
         </div>
       </main>
       <nav aria-label="Nav" className="nav">
-        <NavIcons />
+        <NavIcons className="shop-nav"/>
       </nav>
     </div>
   );

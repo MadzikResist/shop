@@ -44,7 +44,6 @@
         z-index: 100;
         display: flex;
         align-items: center;
-        justify-content: space-between;
         padding: 0;
     }
 
@@ -53,7 +52,13 @@
         height: 25px;
         fill: #fafafa;
     }
+    /*.nav-icon-shop{*/
+    /*    fill: black*/
+    /*}*/
     .nav-selected-icon{
         background-color: transparent;
+    }
+    .shop-nav{
+        fill: black
     }
 }

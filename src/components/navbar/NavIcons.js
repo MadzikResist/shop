@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import { iconsData } from "../../const/iconsData";
 import "./navbar.css";
 import { Link } from "react-router-dom";
-const NavIcons = () => {
+const NavIcons = ({className}) => {
   const currentURL = window.location.href
   const [selectedIcon, setSelectedIcon] = useState("");
   const [scrollDirection, setScrollDirection] = useState(null);
@@ -49,7 +49,7 @@ const NavIcons = () => {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="nav-icon"
+              className={`nav-icon ${className}`}
               viewBox={icon.viewBox}
             >
               <path d={icon.path} />
