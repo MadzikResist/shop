@@ -11,10 +11,13 @@ import SearchIcon from "../../const/icons/SearchIcon";
 const Dashboard = () => {
   return (
     <div className="container">
-      <header aria-label="Header" className="header">
+      <nav aria-label="Nav" className="nav">
+        <NavIcons/>
+      </nav>
+      <header className="header">
         <div className="header-search-container">
           <div className="header-search">
-            <SearchIcon className={"header-search-icon"} />
+            <SearchIcon className={"header-search-icon"}/>
             <input
               type="search"
               className="header-search-input"
@@ -22,7 +25,7 @@ const Dashboard = () => {
             ></input>
           </div>
           <div className="header-filters">
-            <FiltersIcon className={"header-filters-icon"} />
+            <FiltersIcon className={"header-filters-icon"}/>
           </div>
         </div>
         <div className="sale-container">
@@ -30,18 +33,19 @@ const Dashboard = () => {
             <p className="sale-text">Super Sale Discount 40%</p>
             <Link
               to={"/shop"}
-              style={{ textDecoration: "none", cursor: "pointer" }}
+              style={{textDecoration: "none", cursor: "pointer"}}
             >
               <button className="sale-button">
                 Get Now
-                <RightAngleIcon className={"sale-button-icon"} />
+                <RightAngleIcon className={"sale-button-icon"}/>
               </button>
             </Link>
           </div>
-          <img src={headerPhoto} className="sale-background" alt="sale" />
+          <img src={headerPhoto} className="sale-background" alt="sale"/>
         </div>
       </header>
       <main aria-label="Main content" className="main-container">
+        <p className="main-text">Explore a unique world of inspiring products designed with you in mind. Join our community of satisfied customers and embark on a new, exciting journey through the realm of extraordinary products.</p>
         <div className="main-product-list">
           <div className="main-product-list-element"></div>
           <div className="main-product-list-element"></div>
@@ -53,12 +57,12 @@ const Dashboard = () => {
           <div className="main-product-list-element"></div>
         </div>
         <div className="main-popular-products-container">
-          <h2>Popular Products</h2>
+          <h2 className="main-popular-products-text">Popular Products</h2>
           <div className="main-popular-products-images-container">
             <div className="main-popular-products-image-text">
               <div
                 className="main-popular-products-image"
-                style={{ backgroundImage: `url(${product1})` }}
+                style={{backgroundImage: `url(${product1})`}}
               ></div>
               <p className="main-popular-products-image-name">
                 Grey Elegant Coat
@@ -68,7 +72,7 @@ const Dashboard = () => {
             <div className="main-popular-products-image-text">
               <div
                 className="main-popular-products-image"
-                style={{ backgroundImage: `url(${product2})` }}
+                style={{backgroundImage: `url(${product2})`}}
               ></div>
               <p className="main-popular-products-image-name">
                 Dark Grey Minimalist
@@ -78,7 +82,7 @@ const Dashboard = () => {
             <div className="main-popular-products-image-text">
               <div
                 className="main-popular-products-image"
-                style={{ backgroundImage: `url(${product2})` }}
+                style={{backgroundImage: `url(${product2})`}}
               ></div>
               <p className="main-popular-products-image-name">
                 Dark Grey Minimalist
@@ -88,7 +92,7 @@ const Dashboard = () => {
             <div className="main-popular-products-image-text">
               <div
                 className="main-popular-products-image"
-                style={{ backgroundImage: `url(${product2})` }}
+                style={{backgroundImage: `url(${product2})`}}
               ></div>
               <p className="main-popular-products-image-name">
                 Dark Grey Minimalisttttt
@@ -98,9 +102,7 @@ const Dashboard = () => {
           </div>
         </div>
       </main>
-      <nav aria-label="Nav" className="nav">
-        <NavIcons />
-      </nav>
+
     </div>
   );
 };
