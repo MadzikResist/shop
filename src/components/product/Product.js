@@ -39,29 +39,18 @@ const Product = () => {
   const handleAddToCart = (item) => {
     const itemWithSize = { ...item, size: selectedSize };
 
-    // Sprawdź, czy produkt o danym id i rozmiarze już istnieje w koszyku
     const existingItem = addedItems.find(
-      (addedItem) => addedItem.id === itemWithSize.id && addedItem.size === selectedSize
+      (addedItem) =>
+        addedItem.id === itemWithSize.id && addedItem.size === selectedSize,
     );
 
-    // Jeśli istnieje, zaktualizuj ilość (bez dodawania nowego elementu)
     if (existingItem) {
-      console.log('hyh')
-      addToCart(itemWithSize, existingItem.quantity );
-    }
-    else{
+      addToCart(itemWithSize, existingItem.quantity);
+    } else {
       addToCart(itemWithSize);
     }
-    // else if (!addedItems.includes(item.id)) {
-    //       addToCart({ ...item, size: selectedSize });
-    //     }
   };
 
-  // const handleAddToCart = (item) => {
-  //   if (!addedItems.includes(item.id)) {
-  //     addToCart({ ...item, size: selectedSize });
-  //   }
-  // };
   const handleSizeClick = (size) => {
     if (item.sizes?.includes(size)) {
       setSelectedSize(size);
@@ -88,7 +77,7 @@ const Product = () => {
 
   return (
     <div className="product-container">
-      <header aria-label="Header" className="product-header">
+      <header className="product-header">
         <div className="product-header-buttons">
           <button
             className="product-header-buttons-back"
@@ -163,10 +152,8 @@ const Product = () => {
             onClick={() => {
               setIsAdded(!isAdded);
               handleAddToCart(item);
-              console.log("click");
             }}
-            // style={{ opacity: disableButton ? "30%" : "100%" }}
-            // disabled={disableButton}
+            // style={{opacity: disableButton ? "30%" : "100%" }}
           >
             <CartIcon />
           </button>

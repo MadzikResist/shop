@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 const CartList = () => {
   const { cart, addToCart } = useCart();
-  console.log(cart);
   const handleIncreaseQuantity = (item) => {
     addToCart(item, item.quantity + 1);
   };

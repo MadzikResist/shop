@@ -1,3 +1,26 @@
-.account-main-favorites-text{
-    margin-left: 24px;
+.account-main-favorites-text {
+  margin-left: 24px;
+}
+.account-main-favorites-images-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+@media (min-width: 992px) {
+  .account-main-favorites-text {
+    font-size: 24px;
+  }
+  .account-main-favorites {
+    padding: 0 24px;
+  }
+  .account-main-favorites-images-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .main-popular-products-image-text {
+    width: 100%;
+  }
 }

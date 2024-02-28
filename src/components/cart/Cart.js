@@ -49,7 +49,7 @@ const Cart = () => {
       <main aria-label="Main" className="cart-main">
         <CartList />
       </main>
-      <nav aria-label="Nav" className="nav">
+      <nav aria-label="Nav" className="nav nav-desktop">
         <NavIcons />
       </nav>
     </div>

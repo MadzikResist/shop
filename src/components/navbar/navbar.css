@@ -46,19 +46,18 @@
         align-items: center;
         padding: 0;
     }
-
     .nav-icon{
         width: 25px;
         height: 25px;
         fill: #fafafa;
     }
-    /*.nav-icon-shop{*/
-    /*    fill: black*/
-    /*}*/
     .nav-selected-icon{
         background-color: transparent;
     }
     .shop-nav{
         fill: black
+    }
+    .nav-desktop{
+        display: none;
     }
 }
