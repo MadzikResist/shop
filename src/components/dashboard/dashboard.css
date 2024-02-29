@@ -176,7 +176,9 @@
 .main-text {
   display: none;
 }
-@media (min-width: 992px) {
+/*@media (min-width: 992px) {*/
+/*}*/
+@media (min-width: 576px) {
   .header {
     position: relative;
     padding: 0;

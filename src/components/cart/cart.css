@@ -70,8 +70,10 @@
 }
 .cart-main-products-empty-container {
   position: absolute;
+  width: 100%;
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,6 +135,5 @@
     right: 32px;
     font-size: 18px;
     cursor: pointer;
-
   }
 }
