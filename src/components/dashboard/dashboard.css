@@ -3,7 +3,7 @@
   width: 100vw;
 }
 .header {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   display: flex;
   align-items: center;
@@ -176,8 +176,7 @@
 .main-text {
   display: none;
 }
-/*@media (min-width: 992px) {*/
-/*}*/
+
 @media (min-width: 576px) {
   .header {
     position: relative;
@@ -218,6 +217,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    object-fit: cover;
   }
   .sale-text-button-container {
     top: 50%;
@@ -257,7 +257,7 @@
     line-height: 40px;
   }
   .main-container {
-    width: 100%;
+    width: 100vw;
     margin-bottom: 70px;
     display: flex;
     flex-direction: column;
@@ -288,5 +288,78 @@
   }
   .header-shop {
     margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+@media (min-width: 1200px) {
+  .sale-container {
+    height: 80vh;
+    padding: 100px 0;
+  }
+  .sale-background {
+    width: 100%;
+    height: 70vh;
+    object-fit: contain;
+  }
+  .sale-text-button-container {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+  }
+  .main-popular-products-images-container {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 32px;
+  }
+  .main-shop {
+    width: 100vw;
+    padding: 0 100px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .header-search-container {
+    left: 32px
+  }
+}
+@media (min-width: 1400px) {
+  .main-popular-products-images-container {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 32px;
+    width: 100%;
+    max-width: 1800px;
+  }
+  .sale-container {
+    height: 80vh;
+    padding: 100px 0;
+  }
+  .sale-background {
+    width: 100%;
+    height: 70vh;
+    object-fit: contain;
+  }
+  .sale-text-button-container {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 16px;
+  }
+  .header {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 100px;
+    background-color: #b2d2f6;
+  }
+  .container {
+    width: 100vw;
+    height: 80vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+  }
+  .main-shop {
+    width: 100%;
+    max-width: 1800px;
+    padding: 0 100px;
+    grid-template-columns: repeat(3, 1fr);
   }
 }

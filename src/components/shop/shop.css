@@ -6,7 +6,10 @@
   right: 40px;
   z-index: 100;
 }
-@media(min-width: 992px) {
+.main-container-shop {
+  align-items: center;
+}
+@media (min-width: 576px) {
   .main-popular-products-image-icon {
     width: 40px;
     height: 40px;
@@ -15,10 +18,10 @@
     right: 60px;
     z-index: 100;
   }
-  .header-search-shop{
+  .header-search-shop {
     background-color: #e3e6e7;
   }
-  .header-search-input-shop{
+  .header-search-input-shop {
     background-color: #e3e6e7;
   }
 }
