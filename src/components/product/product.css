@@ -279,23 +279,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-between ;
-
+    justify-content: space-between;
   }
-  .product-main{
+  .product-main {
     flex-direction: row;
     justify-content: space-between;
     height: 700px;
     align-items: flex-start;
     margin-top: 100px;
-
   }
-  .product-main-info-container{
+  .product-main-info-container {
     justify-content: space-between;
     height: 700px;
     margin-left: 16px;
   }
 }
 @media (min-width: 1400px) {
-
 }

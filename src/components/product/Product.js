@@ -94,13 +94,12 @@ const Product = () => {
       <main aria-label="Main" className="product-main">
         <ImageSlider photos={item.photos} />
         <div className="product-main-info-container">
-          <div style={{ width: "100%"}}>
+          <div style={{ width: "100%" }}>
             <div
               style={{
                 display: "flex",
                 justifyContent: "space-between",
                 width: "100%",
-
               }}
             >
               <div>

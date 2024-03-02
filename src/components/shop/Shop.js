@@ -42,7 +42,10 @@ const Shop = () => {
           </div>
         </div>
       </header>
-      <main aria-label="Main content" className="main-container main-container-shop">
+      <main
+        aria-label="Main content"
+        className="main-container main-container-shop"
+      >
         <div className="main-popular-products-images-container main-shop">
           {products.map((product) => (
             <Link
