@@ -99,7 +99,7 @@ const Dashboard = () => {
                 style={{ backgroundImage: `url(${product2})` }}
               ></div>
               <p className="main-popular-products-image-name">
-                Dark Grey Minimalisttttt
+                Dark Grey Minimalist
               </p>
               <p className="main-popular-products-image-cost">$ 400.00</p>
             </div>

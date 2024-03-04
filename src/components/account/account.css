@@ -1,5 +1,6 @@
 .account-main-favorites-text {
   margin-left: 24px;
+  align-self: flex-start;
 }
 .account-main-favorites-images-container {
   width: 100%;

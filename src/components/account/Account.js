@@ -45,9 +45,9 @@ const Account = () => {
           </button>
         </div>
       </header>
-      <main className="account-main-favorites" aria-label="favorites products">
+      <main className="main-container-shop main-container" aria-label="favorites products" style={{paddingTop: 0}}>
         <h3 className="account-main-favorites-text">Favorites</h3>
-        <div className="account-main-favorites-images-container">
+        <div className="main-popular-products-images-container main-shop">
           {likes.likes.map((product, index) => {
             return (
               <Link
@@ -57,9 +57,8 @@ const Account = () => {
                 state={{ product }}
               >
                 <div className="main-popular-products-image-text">
-                  <div className="main-popular-products-image-text">
                     <div
-                      className="main-popular-products-image"
+                      className="main-popular-products-image-shop"
                       style={{ backgroundImage: `url(${product.photos[0]})` }}
                     >
                       <div
@@ -94,7 +93,6 @@ const Account = () => {
                       {product.price}
                     </p>
                   </div>
-                </div>
               </Link>
             );
           })}

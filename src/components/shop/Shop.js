@@ -56,7 +56,7 @@ const Shop = () => {
             >
               <div className="main-popular-products-image-text">
                 <div
-                  className="main-popular-products-image"
+                  className="main-popular-products-image-shop"
                   style={{ backgroundImage: `url(${product.photos[0]})` }}
                 >
                   <div

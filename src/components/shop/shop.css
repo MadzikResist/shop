@@ -3,25 +3,43 @@
   height: 25px;
   position: absolute;
   top: 8px;
-  right: 40px;
+  right: 20px;
   z-index: 100;
 }
 .main-container-shop {
   align-items: center;
 }
+.main-popular-products-image-shop {
+  width: 150px;
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 24px;
+  position: relative;
+}
 @media (min-width: 576px) {
   .main-popular-products-image-icon {
-    width: 40px;
-    height: 40px;
-    position: absolute;
+    width: 30px;
+    height: 30px;
     top: 16px;
-    right: 60px;
-    z-index: 100;
+  }
+  .main-popular-products-image-shop {
+    width: 80%;
+    height: 400px;
+    border-radius: 24px;
   }
   .header-search-shop {
     background-color: #e3e6e7;
   }
   .header-search-input-shop {
     background-color: #e3e6e7;
+  }
+}
+@media (min-width: 992px) {
+  .main-popular-products-image-shop {
+    width: 90%;
+    max-width: 450px;
+    height: 500px;
   }
 }
