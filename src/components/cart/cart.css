@@ -104,11 +104,6 @@
     font-size: 32px;
     width: 100%;
   }
-  .cart-main-products-empty-container {
-    width: 100%;
-    left: 50%;
-    transform: translate(-50%);
-  }
   .cart-main-product-photo {
     width: 200px;
     height: 250px;
@@ -121,17 +116,11 @@
     margin-top: 8px;
   }
   .cart-main-products-container {
-    display: flex;
-    flex-direction: column;
-
     padding: 0 64px;
   }
   .cart-main-product {
     width: 70%;
-    align-self: center;
-    display: flex;
     padding: 24px 0;
-    justify-content: center;
     background-color: #f5f5f5;
     margin-top: 16px;
     border-radius: 16px;
