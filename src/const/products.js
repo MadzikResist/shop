@@ -51,11 +51,11 @@ export const products = [
     price: "$ 300.00",
     sizes: ["M", "L"],
   },
-  {
-    id: 8,
-    photos: [product1, product2],
-    name: "Red Striped Sweater",
-    price: "$ 450.00",
-    sizes: ["XS", "XL"],
-  },
+  // {
+  //   id: 8,
+  //   photos: [product1, product2],
+  //   name: "Red Striped Sweater",
+  //   price: "$ 450.00",
+  //   sizes: ["XS", "XL"],
+  // },
 ];
