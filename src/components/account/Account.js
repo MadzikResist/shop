@@ -18,7 +18,7 @@ const Account = () => {
       <nav className="nav nav-desktop">
         <NavIcons />
       </nav>
-      <header className="product-header">
+      <header className="product-header-cart">
         <div className="product-header-buttons">
           <button
             aria-label="Back"

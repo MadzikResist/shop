@@ -17,7 +17,7 @@ const Cart = () => {
 
   return (
     <div className="account-container">
-      <header aria-label="Header" className="product-header">
+      <header aria-label="Header" className="product-header-cart">
         <div className="product-header-buttons">
           <button
             className="product-header-buttons-back"
