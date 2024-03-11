@@ -50,6 +50,7 @@ const Dashboard = () => {
           mind. Join our community of satisfied customers and embark on a new,
           exciting journey through the realm of extraordinary products.
         </p>
+        {/*TODO*/}
         <div className="main-product-list">
           <div className="main-product-list-element"></div>
           <div className="main-product-list-element"></div>
