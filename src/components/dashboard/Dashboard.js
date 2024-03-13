@@ -63,42 +63,34 @@ const Dashboard = () => {
         </div>
         <div className="main-popular-products-container">
           <h2 className="main-popular-products-text">Popular Products</h2>
-          <div className="main-popular-products-images-container">
-            <div className="main-popular-products-image-text">
-              <div
-                className="main-popular-products-image"
-                style={{ backgroundImage: `url(${product1})` }}
-              ></div>
+          <div className="main-container-shop">
+            <div className="main-shop-product-wrapper">
+              <img src={product1} alt="product" className="main-shop-image" />
               <p className="main-popular-products-image-name">
                 Grey Elegant Coat
               </p>
               <p className="main-popular-products-image-cost">$ 800.00</p>
             </div>
-            <div className="main-popular-products-image-text">
-              <div
-                className="main-popular-products-image"
-                style={{ backgroundImage: `url(${product2})` }}
-              ></div>
+            <div className="main-shop-product-wrapper">
+              <img src={product1} alt="product" className="main-shop-image" />
               <p className="main-popular-products-image-name">
                 Dark Grey Minimalist
               </p>
               <p className="main-popular-products-image-cost">$ 400.00</p>
             </div>
-            <div className="main-popular-products-image-text">
-              <div
-                className="main-popular-products-image"
-                style={{ backgroundImage: `url(${product2})` }}
-              ></div>
+            <div className="main-shop-product-wrapper">
+              <img src={product1} alt="product" className="main-shop-image" />
               <p className="main-popular-products-image-name">
                 Dark Grey Minimalist
               </p>
               <p className="main-popular-products-image-cost">$ 400.00</p>
             </div>
-            <div className="main-popular-products-image-text">
-              <div
-                className="main-popular-products-image"
-                style={{ backgroundImage: `url(${product2})` }}
-              ></div>
+            <div className="main-shop-product-wrapper">
+              <img
+                src={product1}
+                alt="product"
+                className="main-shop-image"
+              />
               <p className="main-popular-products-image-name">
                 Dark Grey Minimalist
               </p>
