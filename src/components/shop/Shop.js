@@ -19,7 +19,7 @@ const Shop = () => {
     (async () => {
       try {
         const response = await fetch(
-          "https://www2.hm.com/hmwebservices/service/products/plp/hm-poland/Online/pl?q=:stock:category:ladies_dresses:sale:false:oldSale:false:isNew:false&currentPage=1&pageSize=36&skipStockCheck=false",
+          "https://www2.hm.com/en_us/women/products/dresses/_jcr_content/main/productlisting.display.json?sort=stock&image-size=small&image=model&offset=36&page-size=36",
           {
             method: "GET",
             headers: {
@@ -29,8 +29,7 @@ const Shop = () => {
         );
         const clothes = await response.json();
         console.log(clothes);
-        console.log("fff");
-        setProducts(clothes.results);
+        setProducts(clothes.products);
       } catch (error) {
         console.error("error fetching data: ", error);
       }
@@ -69,16 +68,16 @@ const Shop = () => {
       <main aria-label="Main content" className="main-container-shop">
         {products.map((product) => (
           <Link
-            to={`/product/${product.code}`}
-            key={product.code}
+            to={`/product/${product.articleCode}`}
+            key={product.articleCode}
             state={{ product }}
             // style={linkStyle}
 
             className="main-shop-product-wrapper"
           >
             <img
-              src={product.articles[0].normalPicture[0].url}
-              alt="product"
+              src={product.image[0].src}
+              alt={product.image[0].alt}
               className="main-shop-image"
             />
             <div
@@ -88,7 +87,7 @@ const Shop = () => {
                 handleLikeItem(product, true);
               }}
             >
-              {addedLikes.includes(product.code) ? (
+              {addedLikes.includes(product.articleCode) ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512"
@@ -102,9 +101,9 @@ const Shop = () => {
                 </svg>
               )}
             </div>
-            <p className="main-popular-products-image-name">{product.name}</p>
+            <p className="main-popular-products-image-name">{product.title}</p>
             <p className="main-popular-products-image-cost">
-              {product.price.formattedValue}
+              {product.price}
             </p>
           </Link>
         ))}
