@@ -32,7 +32,7 @@ const Dashboard = () => {
           <div className="sale-text-button-container">
             <p className="sale-text">Super Sale Discount 40%</p>
             <Link
-              to={"/shop"}
+              to={"/store"}
               style={{ textDecoration: "none", cursor: "pointer" }}
             >
               <button className="sale-button">

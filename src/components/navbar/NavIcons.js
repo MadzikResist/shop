@@ -9,8 +9,8 @@ const NavIcons = ({className}) => {
   let scrollY = 0
 
   useEffect(() => {
-    if(currentURL.includes("shop")){
-      setSelectedIcon("shop")
+    if(currentURL.includes("store")){
+      setSelectedIcon("store")
     } else if(currentURL.includes("cart")){
       setSelectedIcon("cart")
     }

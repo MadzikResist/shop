@@ -18,7 +18,7 @@ const CartList = () => {
           <p className="cart-main-products-empty-text">
             No products in your cart. Start adding them now!
           </p>
-          <Link to={"/shop"} className="product-footer-buttons-buy">
+          <Link to={"/store"} className="product-footer-buttons-buy">
             Add Product
           </Link>
         </div>
