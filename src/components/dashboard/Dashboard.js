@@ -1,7 +1,6 @@
 import "./dashboard.css";
 import headerPhoto from "../../assets/headerPhoto.png";
 import product1 from "../../assets/product1.webp";
-import product2 from "../../assets/product2.webp";
 import NavIcons from "../navbar/NavIcons";
 import { Link } from "react-router-dom";
 import RightAngleIcon from "../../const/icons/RightAngleIcon";

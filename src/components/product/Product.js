@@ -13,7 +13,7 @@ const Product = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { product: item } = location.state;
-  const [selectedSize, setSelectedSize] = useState(item.sizes[0]);
+  const [selectedSize, setSelectedSize] = useState(item.variantSizes[0].filterCode);
   const [disableButton, setDisableButton] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const { cart, addToCart } = useCart();
@@ -50,7 +50,7 @@ const Product = () => {
       addToCart(itemWithSize);
     }
   };
-
+  console.log(item)
   const handleSizeClick = (size) => {
     if (item.sizes?.includes(size)) {
       setSelectedSize(size);
@@ -58,7 +58,8 @@ const Product = () => {
   };
 
   const renderSize = (size) => {
-    const isSizeAvailable = item.sizes?.includes(size);
+    const isSizeAvailable = item.variantSizes.map((sizeEl) => sizeEl.filterCode === size)
+    console.log(isSizeAvailable)
     return (
       <div
         key={size}
@@ -92,7 +93,7 @@ const Product = () => {
         </div>
       </header>
       <main aria-label="Main" className="product-main">
-        <ImageSlider photos={item.photos} />
+        <ImageSlider photos={item.galleryImages} />
         <div className="product-main-info-container">
           <div style={{ width: "100%" }}>
             <div
@@ -104,9 +105,9 @@ const Product = () => {
             >
               <div>
                 <p className="product-main-title">{item.name}</p>
-                <p className="product-main-price">{item.price}</p>
+                <p className="product-main-price">{item.price.formattedValue}</p>
               </div>
-              {addedLikes.includes(item.id) ? (
+              {addedLikes.includes(item.code) ? (
                 <div className="product-main-like-icon-container">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

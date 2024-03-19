@@ -1,5 +1,5 @@
 import Dashboard from "./components/dashboard/Dashboard";
-import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
+import { HashRouter, Route, Routes} from "react-router-dom";
 import Shop from "./components/shop/Shop";
 import Product from "./components/product/Product";
 import Account from "./components/account/Account";

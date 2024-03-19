@@ -28,7 +28,7 @@ const Shop = () => {
           },
         );
         const clothes = await response.json();
-        // console.log(clothes);
+        console.log(clothes);
         setProducts(clothes.results);
       } catch (error) {
         console.error("error fetching data: ", error);

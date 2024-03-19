@@ -32,7 +32,7 @@ const ImageSlider = ({ photos }) => {
             {index === current && (
               <div
                 className="image"
-                style={{ backgroundImage: `url(${slide})` }}
+                style={{ backgroundImage: `url(${slide.url})` }}
               ></div>
             )}
           </div>
