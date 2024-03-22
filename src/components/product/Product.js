@@ -13,7 +13,7 @@ const Product = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { product: item } = location.state;
-  const [selectedSize, setSelectedSize] = useState(item.variantSizes[0].filterCode);
+  const [selectedSize, setSelectedSize] = useState(item.sizes[0]);
   const [disableButton, setDisableButton] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const { cart, addToCart } = useCart();
@@ -58,7 +58,7 @@ const Product = () => {
   };
 
   const renderSize = (size) => {
-    const isSizeAvailable = item.variantSizes.map((sizeEl) => sizeEl.filterCode === size)
+    const isSizeAvailable = item.sizes.map((sizeEl) => sizeEl === size)
     console.log(isSizeAvailable)
     return (
       <div
@@ -105,7 +105,7 @@ const Product = () => {
             >
               <div>
                 <p className="product-main-title">{item.name}</p>
-                <p className="product-main-price">{item.price.formattedValue}</p>
+                <p className="product-main-price">{item.price}</p>
               </div>
               {addedLikes.includes(item.code) ? (
                 <div className="product-main-like-icon-container">

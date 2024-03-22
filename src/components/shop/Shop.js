@@ -19,7 +19,7 @@ const Shop = () => {
     (async () => {
       try {
         const response = await fetch(
-          "https://www2.hm.com/hmwebservices/service/products/plp/hm-poland/Online/pl?q=:stock:category:ladies_dresses:sale:false:oldSale:false:isNew:false&currentPage=1&pageSize=36&skipStockCheck=false",
+          "http://localhost:4000/api/products/",
           {
             method: "GET",
             headers: {
@@ -28,8 +28,8 @@ const Shop = () => {
           },
         );
         const clothes = await response.json();
-        console.log(clothes);
-        setProducts(clothes.results);
+        console.log('clothens',clothes);
+        setProducts(clothes);
       } catch (error) {
         console.error("error fetching data: ", error);
       }
@@ -76,7 +76,7 @@ const Shop = () => {
             className="main-shop-product-wrapper"
           >
             <img
-              src={product.articles[0].normalPicture[0].url}
+              src={product.galleryImages[0]}
               alt="product"
               className="main-shop-image"
             />
@@ -103,7 +103,7 @@ const Shop = () => {
             </div>
             <p className="main-popular-products-image-name">{product.name}</p>
             <p className="main-popular-products-image-cost">
-              {product.price.formattedValue}
+              {product.price}
             </p>
           </Link>
         ))}
