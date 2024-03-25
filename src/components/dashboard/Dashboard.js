@@ -1,18 +1,17 @@
 import "./dashboard.css";
 import headerPhoto from "../../assets/headerPhoto.png";
-import product1 from "../../assets/product1.webp";
 import NavIcons from "../navbar/NavIcons";
 import { Link } from "react-router-dom";
 import RightAngleIcon from "../../const/icons/RightAngleIcon";
 import FiltersIcon from "../../const/icons/FiltersIcon";
 import SearchIcon from "../../const/icons/SearchIcon";
-import { useEffect, useState } from "react";
-import DashboardProductsSlider from "./DashboardProductsSlider";
+import React, { useEffect, useState } from "react";
+import SliderPopularProducts from "./SliderPopularProducts";
 
 const Dashboard = () => {
   const [popularProducts, setPopularProducts] = useState([]);
-  const [selectedPopularCategory, setSelectedPopularCategory] = useState("women");
-  console.log(popularProducts);
+  const [selectedPopularCategory, setSelectedPopularCategory] =
+    useState("women");
 
   const handleChangePopularCategory = () => {
     if (selectedPopularCategory === "women") {
@@ -119,38 +118,7 @@ const Dashboard = () => {
               Men
             </button>
           </div>
-          <div className="main-container-popular">
-            <DashboardProductsSlider photos={popularProducts} />
-
-            {/*<div className="main-shop-product-wrapper">*/}
-            {/*  <img src={product1} alt="product" className="main-shop-image" />*/}
-            {/*  <p className="main-popular-products-image-name">*/}
-            {/*    Grey Elegant Coat*/}
-            {/*  </p>*/}
-            {/*  <p className="main-popular-products-image-cost">$ 800.00</p>*/}
-            {/*</div>*/}
-            {/*<div className="main-shop-product-wrapper">*/}
-            {/*  <img src={product1} alt="product" className="main-shop-image" />*/}
-            {/*  <p className="main-popular-products-image-name">*/}
-            {/*    Dark Grey Minimalist*/}
-            {/*  </p>*/}
-            {/*  <p className="main-popular-products-image-cost">$ 400.00</p>*/}
-            {/*</div>*/}
-            {/*<div className="main-shop-product-wrapper">*/}
-            {/*  <img src={product1} alt="product" className="main-shop-image" />*/}
-            {/*  <p className="main-popular-products-image-name">*/}
-            {/*    Dark Grey Minimalist*/}
-            {/*  </p>*/}
-            {/*  <p className="main-popular-products-image-cost">$ 400.00</p>*/}
-            {/*</div>*/}
-            {/*<div className="main-shop-product-wrapper">*/}
-            {/*  <img src={product1} alt="product" className="main-shop-image" />*/}
-            {/*  <p className="main-popular-products-image-name">*/}
-            {/*    Dark Grey Minimalist*/}
-            {/*  </p>*/}
-            {/*  <p className="main-popular-products-image-cost">$ 400.00</p>*/}
-            {/*</div>*/}
-          </div>
+          <SliderPopularProducts photos={popularProducts} />
         </div>
       </main>
     </div>

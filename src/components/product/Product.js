@@ -50,7 +50,6 @@ const Product = () => {
       addToCart(itemWithSize);
     }
   };
-  console.log(item)
   const handleSizeClick = (size) => {
     if (item.sizes?.includes(size)) {
       setSelectedSize(size);
@@ -59,7 +58,6 @@ const Product = () => {
 
   const renderSize = (size) => {
     const isSizeAvailable = item.sizes.map((sizeEl) => sizeEl === size)
-    console.log(isSizeAvailable)
     return (
       <div
         key={size}
