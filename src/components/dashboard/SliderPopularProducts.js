@@ -1,12 +1,31 @@
 import "./sliderPopularProducts.css";
-import React, {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 
 const SliderPopularProducts = ({ photos }) => {
   photos = photos.map((product) => product.galleryImages[0]);
+  const [currentWidth, setCurrentWidth] = useState(50);
   const length = photos.length;
   const [current, setCurrent] = useState(0);
-
   const refInterval = useRef();
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1200 && window.innerWidth < 1600) {
+        setCurrentWidth(33);
+      } else if (window.innerWidth >= 1600 && window.innerWidth < 2000) {
+        setCurrentWidth(25);
+      } else if (window.innerWidth >= 2000) {
+        setCurrentWidth(20);
+      } else {
+        setCurrentWidth(50);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     refInterval.current = setInterval(() => {
       setCurrent((prevCurrent) =>
@@ -70,7 +89,7 @@ const SliderPopularProducts = ({ photos }) => {
         </div>
         <div
           style={{
-            transform: `translateX(-${current * 50}%)`,
+            transform: `translateX(-${current * currentWidth}%)`,
           }}
           className="slidePopularProducts"
         >
@@ -86,7 +105,7 @@ const SliderPopularProducts = ({ photos }) => {
                   alt="Popular product"
                   style={{
                     position: "absolute",
-                    left: `${index * 50}%`,
+                    left: `${index * currentWidth}%`,
                   }}
                 />
               </div>
