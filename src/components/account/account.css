@@ -1,16 +1,31 @@
 .account-main-favorites-text {
   margin-left: 24px;
   align-self: flex-start;
+  margin-bottom: 16px;
 }
 .account-main-favorites-images-container {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   justify-content: center;
   margin-top: 16px;
 }
 
+.favorites-products-photo{
+  vertical-align: middle;
+  width: 100%;
+  border-radius: 24px;
+}
+.favorites-products-wrapper{
+    flex: 100%;
+    max-width: 100%;
+    padding: 0 16px;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    margin-bottom: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
 @media (min-width: 992px) {
   .account-main-favorites-text {
     font-size: 24px;

@@ -18,39 +18,42 @@ const likesReducer = (state, action) => {
         ),
       };
     case "REMOVE_FROM_LIKES":
+      console.log(state)
       return {
-        likes: state.likes.filter((item) => item.id !== action.payload.id),
+        likes: state.likes.filter((item) => item.code !== action.payload.id),
+
       };
     default:
       return state;
   }
 };
 
+
 const LikesProvider = ({ children }) => {
   const [likes, dispatch] = useReducer(likesReducer, { likes: [] });
   const removeFromLikes = (item) => {
     const removeIndex = likes.likes.findIndex(
-      (product) => product.id === item.id
+      (product) => product.code === item.code
     );
     if (removeIndex !== -1) {
       const newLikes = [...likes.likes];
       newLikes.splice(removeIndex, 1);
       dispatch({
         type: "REMOVE_FROM_LIKES",
-        payload: { id: item.id, newLikes },
+        payload: { id: item.code, newLikes },
       });
     }
   }
 
   const likeItem = (item) => {
     const existingItem = likes.likes.find(
-      (existingItem) => existingItem.id === item.id,
+      (existingItem) => existingItem.code === item.code,
     );
     if (existingItem) {
       const newLike = !existingItem.like;
       dispatch({
         type: "UPDATE_LIKE",
-        payload: { id: item.id, like: newLike },
+        payload: { code: item.code, like: newLike },
 
       });
       if(!newLike){

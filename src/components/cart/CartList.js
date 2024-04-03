@@ -1,4 +1,3 @@
-import product1 from "../../assets/product1.webp";
 import { useCart } from "../../contexts/CartContext";
 import { Link } from "react-router-dom";
 
@@ -7,7 +6,7 @@ const CartList = () => {
   const handleIncreaseQuantity = (item) => {
     addToCart(item, item.quantity + 1);
   };
-
+  console.log(cart.cart)
   const handleDecreaseQuantity = (item) => {
     addToCart(item, item.quantity - 1);
   };
@@ -26,10 +25,11 @@ const CartList = () => {
         cart.cart.map((item, index) => {
           return (
             <div className="cart-main-product" key={`${item.id}-${item.size}`}>
-              <div
+              <img
+                src={item.galleryImages[0]}
+                alt="product"
                 className="cart-main-product-photo"
-                style={{ backgroundImage: `url(${product1})` }}
-              ></div>
+              />
               <div className="cart-main-product-info-container">
                 <div>
                   <p className="cart-main-product-info-title">{item.name}</p>

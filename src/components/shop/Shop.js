@@ -1,5 +1,4 @@
 import NavIcons from "../navbar/NavIcons";
-// import { products } from "../../const/products";
 import { Link } from "react-router-dom";
 import "./shop.css";
 import { useEffect, useMemo, useState } from "react";
@@ -9,7 +8,7 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
   // console.log("prod", products);
   const addedLikes = useMemo(() => {
-    return likes.likes.map((addedItem) => addedItem.id);
+    return likes.likes.map((addedItem) => addedItem.code);
   }, [likes.likes]);
 
   const handleLikeItem = (item, like) => {

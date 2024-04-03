@@ -20,28 +20,28 @@ const Product = () => {
   const { likes, likeItem } = useLikes();
 
   const addedItems = useMemo(() => {
-    return cart.cart.map((addedItem) => addedItem.id);
+    return cart.cart.map((addedItem) => addedItem.code);
   }, [cart.cart]);
   const addedLikes = useMemo(() => {
-    return likes.likes.map((addedItem) => addedItem.id);
+    return likes.likes.map((addedItem) => addedItem.code);
   }, [likes.likes]);
   const handleLikeItem = (item, like) => {
     likeItem({ ...item, like });
   };
   useEffect(() => {
-    if (addedItems.includes(item.id)) {
+    if (addedItems.includes(item.code)) {
       setDisableButton(true);
     } else {
       setDisableButton(false);
     }
-  }, [disableButton, addedItems, item.id]);
+  }, [disableButton, addedItems, item.code]);
 
   const handleAddToCart = (item) => {
     const itemWithSize = { ...item, size: selectedSize };
 
     const existingItem = addedItems.find(
       (addedItem) =>
-        addedItem.id === itemWithSize.id && addedItem.size === selectedSize,
+        addedItem.code === itemWithSize.code && addedItem.size === selectedSize,
     );
 
     if (existingItem) {

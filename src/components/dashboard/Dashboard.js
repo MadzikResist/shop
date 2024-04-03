@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import RightAngleIcon from "../../const/icons/RightAngleIcon";
 import FiltersIcon from "../../const/icons/FiltersIcon";
 import SearchIcon from "../../const/icons/SearchIcon";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import SliderPopularProducts from "./SliderPopularProducts";
 
 const Dashboard = () => {
