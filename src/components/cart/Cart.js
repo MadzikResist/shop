@@ -16,9 +16,8 @@ const Cart = () => {
   };
 
   return (
-    <div className="account-container">
+    <div className="cart-container">
       <header aria-label="Header" className="product-header-cart">
-        <div className="product-header-buttons">
           <button
             className="product-header-buttons-back"
             onClick={() => navigate(-1)}
@@ -44,7 +43,6 @@ const Cart = () => {
           >
             {isOpen && "Clear Cart"}
           </div>
-        </div>
       </header>
       <main aria-label="Main" className="cart-main">
         <CartList />

@@ -1,11 +1,12 @@
 .cart-container {
+  width: 100vw;
 }
 .product-header-cart {
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  flex-direction: column;
   padding: 16px;
 }
 .cart-main-products-container {
