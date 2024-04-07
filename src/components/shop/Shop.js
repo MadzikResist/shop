@@ -18,7 +18,7 @@ const Shop = () => {
     (async () => {
       try {
         const response = await fetch(
-          "http://localhost:4000/api/products/",
+          "https://shop-backend-uedl.onrender.com/api/products/",
           {
             method: "GET",
             headers: {
