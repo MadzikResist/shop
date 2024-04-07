@@ -18,7 +18,7 @@ const likesReducer = (state, action) => {
         ),
       };
     case "REMOVE_FROM_LIKES":
-      console.log(state)
+      // console.log(state)
       return {
         likes: state.likes.filter((item) => item.code !== action.payload.id),
 

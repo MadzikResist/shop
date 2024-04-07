@@ -6,7 +6,7 @@ const CartList = () => {
   const handleIncreaseQuantity = (item) => {
     addToCart(item, item.quantity + 1);
   };
-  console.log(cart.cart)
+  // console.log(cart.cart)
   const handleDecreaseQuantity = (item) => {
     addToCart(item, item.quantity - 1);
   };
