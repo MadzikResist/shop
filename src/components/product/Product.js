@@ -18,7 +18,7 @@ const Product = () => {
   const [isAdded, setIsAdded] = useState(false);
   const { cart, addToCart } = useCart();
   const { likes, likeItem } = useLikes();
-
+  console.log(item);
   const addedItems = useMemo(() => {
     return cart.cart.map((addedItem) => addedItem.code);
   }, [cart.cart]);
@@ -57,20 +57,21 @@ const Product = () => {
   };
 
   const renderSize = (size) => {
-    const isSizeAvailable = item.sizes.map((sizeEl) => sizeEl === size)
+    const isSizeAvailable = item.sizes.includes(size); // Sprawdź, czy rozmiar jest dostępny
     return (
-      <div
-        key={size}
-        onClick={() => handleSizeClick(size)}
-        className="product-main-size"
-        style={{
-          color: isSizeAvailable ? "#000" : undefined,
-          backgroundColor: selectedSize === size ? "#48e788" : undefined,
-          pointerEvents: isSizeAvailable ? "default" : "none",
-        }}
-      >
-        {size}
-      </div>
+      isSizeAvailable && (
+        <div
+          key={size}
+          onClick={() => handleSizeClick(size)}
+          className="product-main-size"
+          style={{
+            color: "#000",
+            backgroundColor: selectedSize === size ? "#48e788" : undefined,
+          }}
+        >
+          {size}
+        </div>
+      )
     );
   };
 
@@ -97,12 +98,23 @@ const Product = () => {
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-between",
+                // justifyContent: "space-between",
                 width: "100%",
+                alignItems: "flex-start",
+                paddingRight: '16px'
+
               }}
             >
-              <div>
-                <p className="product-main-title">{item.name}</p>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: '85%',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start'
+                }}
+              >
+                <p className="product-main-title">{item.name} </p>
                 <p className="product-main-price">{item.price}</p>
               </div>
               {addedLikes.includes(item.code) ? (
@@ -137,9 +149,15 @@ const Product = () => {
             <div className="product-main-hr" />
             <div className="product-main-size-container">
               <p className="product-main-size-title">Size</p>
-              <div className="product-main-sizes">
-                {["XS", "S", "M", "L", "XL"].map(renderSize)}
-              </div>
+              {item.sizes.length ? (
+                <div className="product-main-sizes">
+                  {["XXS", "XS", "S", "M", "L", "XL", "XXL", "3XL", "4XL"].map(
+                    renderSize,
+                  )}
+                </div>
+              ) : (
+                <p>No sizes available</p>
+              )}
             </div>
           </div>
           <div className="product-footer-container">

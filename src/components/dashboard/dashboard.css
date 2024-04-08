@@ -52,6 +52,7 @@
   fill: #fff;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 .sale-container {
   width: 100%;
@@ -103,7 +104,7 @@
   height: 10px;
 }
 .main-container {
-  width: 100%;
+  width: 100vw;
   margin-bottom: 70px;
 }
 .main-product-list {
@@ -166,6 +167,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   align-self: center;
+  margin-bottom: 0;
 }
 
 .main-popular-products-image-cost {
@@ -173,6 +175,7 @@
   font-size: 20px;
   align-self: center;
   width: 100%;
+  margin: 0;
 }
 .main-text {
   display: none;
